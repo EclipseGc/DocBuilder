@@ -1,0 +1,21 @@
+{
+    "name": "eclipsegc/doc-builder",
+    "description": "A PHP utility for assembling multiple different documentation directories into a single repository.",
+    "type": "project",
+    "require": {
+        "eclipsegc/common-console": "0.0.x-dev"
+    },
+    "license": "GPL-2 or greater",
+    "authors": [
+        {
+            "name": "Kris Vanderwater",
+            "email": "kris@meridian-ds.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EclipseGc\\DocBuilder\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}

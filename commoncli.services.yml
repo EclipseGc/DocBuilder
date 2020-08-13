@@ -1,0 +1,7 @@
+services:
+
+  docs.build:
+    class: EclipseGc\DocBuilder\Command\BuildDocumentationCommand
+    arguments: ['@process.runner']
+    tags:
+      - { name: common_console_command }
