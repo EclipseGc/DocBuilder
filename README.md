@@ -17,3 +17,5 @@ Here's a simple example:
   "destination": "/Users/kris/foobar"
 }
 ```
+
+In order to run the command, just simply ` ./vendor/bin/commoncli docs:build --file_path=/manifest/file/name.json`
