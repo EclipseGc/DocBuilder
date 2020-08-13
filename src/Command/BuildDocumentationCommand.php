@@ -63,7 +63,9 @@ class BuildDocumentationCommand extends Command {
         throw new \Exception(sprintf("The expected documentation directory of: \"%s\" was not found.", $docs_dir));
       }
       $destination_dir = $destination . DIRECTORY_SEPARATOR . "build" . DIRECTORY_SEPARATOR . $repository->destination;
-      mkdir($destination_dir, 0777, TRUE);
+      if (!file_exists($destination_dir)) {
+        mkdir($destination_dir, 0777, TRUE);
+      }
       $docs = $docs_dir . DIRECTORY_SEPARATOR . '*';
       $process = Process::fromShellCommandline("cp -r $docs $destination_dir; rm -Rf $directory");
       $this->runner->run($process, $this->getMockPlatform(), $output);
