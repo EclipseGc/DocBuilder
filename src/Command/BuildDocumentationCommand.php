@@ -62,7 +62,7 @@ class BuildDocumentationCommand extends Command {
       if (!file_exists($docs_dir)) {
         throw new \Exception(sprintf("The expected documentation directory of: \"%s\" was not found.", $docs_dir));
       }
-      $destination_dir = $destination . DIRECTORY_SEPARATOR . "build" . DIRECTORY_SEPARATOR . $repository->destination;
+      $destination_dir = $destination . DIRECTORY_SEPARATOR . $repository->destination;
       if (!file_exists($destination_dir)) {
         mkdir($destination_dir, 0777, TRUE);
       }
@@ -75,7 +75,6 @@ class BuildDocumentationCommand extends Command {
 
   protected function prepDirectory(string $destination) {
     $dirs = [
-      'build',
       'component'
     ];
     foreach ($dirs as $dir) {
