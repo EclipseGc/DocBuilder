@@ -56,7 +56,12 @@ class BuildDocumentationCommand extends Command {
     $this->prepDirectory($destination);
     foreach ($contents->repositories as $name => $repository) {
       $directory = $destination . DIRECTORY_SEPARATOR . "component";
-      $process = Process::fromShellCommandline("cd $directory; git clone {$repository->repo} $name;");
+      if (empty($repository->branch)) {
+        $process = Process::fromShellCommandline("cd $directory; git clone {$repository->repo} $name;");
+      }
+      else {
+        $process = Process::fromShellCommandline("cd $directory; git clone {$repository->repo} --branch={$repository->branch} $name;");
+      }
       $this->runner->run($process, $this->getMockPlatform(), $output);
       $docs_dir = $directory . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . $repository->source;
       if (!file_exists($docs_dir)) {
